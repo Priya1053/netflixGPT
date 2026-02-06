@@ -2,27 +2,71 @@ import Header from "./Header";
 import SignUp from "./SignUp";
 import { useRef, useState } from "react";
 import { validData } from "../utils/Validate";
+import { auth } from "../utils/firebase";
+import { signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { Provider } from "react-redux";
+import Browse from "./Browse";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Login = ()=>{
     const [isSignInform , setSignInform] = useState();
     const [errorMsg, setErrorMsg] = useState();
-
+    const navigate = useNavigate();
     const name=useRef(null);
     const email = useRef(null);
     const password = useRef(null);
+
+
 
     function toggleSingUp(){
         setSignInform(!isSignInform);
     }
 
-    function btnValidate(){
-        let msg = validData(name.current.value , email.current.value , password.current.value)
-        setErrorMsg(msg);
-        console.log(msg);
-        console.log(email.current.value, " - ",password.current.value)
-    }
+    async function btnValidate(){
+      let msg = validData(name.current.value , email.current.value , password.current.value)
+      setErrorMsg(msg); 
+  }
 
-    return(
+  async function googlePopUp(){
+    try{
+      const provider = new GoogleAuthProvider();
+      const result = await signInWithPopup(auth, provider);
+      navigate("/browse");
+      console.log(result);
+      return result;
+    }
+     catch (error) {
+        const errorcode = error.code;
+        console.log(errorcode);
+        console.log(error);
+        setErrorMsg(errorcode)
+    }
+  }
+ 
+//         let msg = validData(name.current.value , email.current.value , password.current.value)
+//         setErrorMsg(msg);
+
+//         if(msg) return;
+//         if(!isSignInform)
+//         { 
+
+//             
+        
+        // .catch((error) => {
+        //  const errorCode = error.code;
+        //  const errorMessage = error.message;
+        //  setErrorMsg(errorCode + " - " + errorMessage);
+        //  });
+        
+    //     else{
+
+    //     }
+    //     console.log(msg);
+    //     console.log(name.current.value , email.current.value, " - ",password.current.value)
+     //}
+
+
+return(
         <>
         <div>
             <Header/>
@@ -49,6 +93,7 @@ const Login = ()=>{
             
             <button className="text-white w-96 h-12 m-2 border border-amber-50 rounded-xl bg-red-600" onClick={btnValidate}>
                 {isSignInform?"Sign In" : "Sign Up"}</button>
+                <button className="m-2 " onClick={googlePopUp}>Sing in with google</button>
             <p className="m-2 p-1 cursor-pointer" onClick={toggleSingUp}><span>{isSignInform? "New to Netflix? Sign Up now.":"Already registerd ? Sing In"}</span></p>
             </div>
         </form>
