@@ -18,7 +18,11 @@ const Search = ({searchMovie})=>{
         <>
      <div className="flex flex-wrap gap-5 justify-center py-10 mt-14 ">
         {
-           filteredCards ? <MoviesList f={filteredCards}/>: null 
+           filteredCards.map(m=> <MovieCard movie ={m.poster_path}
+                                             name={m.original_title} 
+                                             date ={m.release_date}
+                                             rate={m.vote_average}
+                                             desc={m.overview}/>) 
         }
         </div>  
         <div>
