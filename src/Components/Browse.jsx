@@ -6,6 +6,7 @@ import Search from "./Search";
 
 const Browse = ()=>{
   const [movies , setMovies] = useState();
+  const [search , setSearch] = useState();
   
   useEffect(()=>{
 
@@ -21,12 +22,11 @@ const Browse = ()=>{
     
   },[])
 
-
     return(
         <>
           <Header/> 
-          {movies? <Search searchMovie ={movies}/>: null}
-          {movies ? <MoviesList data = {movies}/> : null}
+          {movies? <Search searchMovie ={movies} search={search} setSearch={setSearch}/>: null}
+          {movies ? <MoviesList data = {movies} search={search}/> : null}
         </>
     )
 }
