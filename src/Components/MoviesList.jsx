@@ -13,7 +13,7 @@ const MoviesList = ({data,search})=>{
   }
 return(
     <>
-    <div className="flex flex-wrap gap-5 justify-center py-10 mt-20">
+    <div className="flex flex-wrap gap-5 justify-center py-10 mt-1">
                 {
                  filterdData.length > 0 && filterdData.length !=null ?  filterdData.map(m=> <MovieCard key ={m.id}
                                             id={m.id}
