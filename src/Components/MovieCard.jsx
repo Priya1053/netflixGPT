@@ -14,4 +14,3 @@ const MovieCard = ({movie,name,date,rate})=>{
 }
 
  export default MovieCard;
-

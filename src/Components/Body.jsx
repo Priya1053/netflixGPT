@@ -18,7 +18,7 @@ const dispatch = useDispatch();
         {
             path:"/browse",
             element:<Browse/>
-        }
+        },        
     ])
     
     useEffect(()=>{

@@ -9,17 +9,16 @@ const Browse = ()=>{
   const [search , setSearch] = useState();
   
   useEffect(()=>{
-
     async function getMoviePlay(){
     const data = await fetch(`https://api.themoviedb.org/3/movie/now_playing?page=1`, API_OPTION);
     const json = await data.json();
     setMovies(json);
+    console.log("movies",movies)
   };
-
-    getMoviePlay();
     
+    getMoviePlay();  
   },[])
-
+  
     return(
         <>
           <Header/> 

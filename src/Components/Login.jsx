@@ -67,7 +67,7 @@ return(
                    className="text-white bg-gray-700 w-96 h-16 m-2 p-3 border border-amber-50 rounded-md"/><br />
 
                    <p className="text-red-500 text-lg mx-5 my-3">{errorMsg}</p>
-            
+                               
             <button className="text-white w-96 h-12 m-2 border border-amber-50 rounded-xl bg-red-600" onClick={btnValidate}>
                 {isSignInform?"Sign In" : "Sign Up"}</button>
                 <button className="m-2 p-3" onClick={googlePopUp}>Sign in with google</button>
