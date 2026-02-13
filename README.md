@@ -20,4 +20,3 @@
  ![Search](image-5.png)
  ![Not Available Movie](image-6.png)
 =======
->>>>>>> 07ec9480b22a15575c1408abcc51d20853bc77bd
