@@ -42,29 +42,6 @@ const Login = ()=>{
         setErrorMsg(errorcode)
     }
   }
- 
-//         let msg = validData(name.current.value , email.current.value , password.current.value)
-//         setErrorMsg(msg);
-
-//         if(msg) return;
-//         if(!isSignInform)
-//         { 
-
-//             
-        
-        // .catch((error) => {
-        //  const errorCode = error.code;
-        //  const errorMessage = error.message;
-        //  setErrorMsg(errorCode + " - " + errorMessage);
-        //  });
-        
-    //     else{
-
-    //     }
-    //     console.log(msg);
-    //     console.log(name.current.value , email.current.value, " - ",password.current.value)
-     //}
-
 
 return(
         <>
@@ -93,7 +70,7 @@ return(
             
             <button className="text-white w-96 h-12 m-2 border border-amber-50 rounded-xl bg-red-600" onClick={btnValidate}>
                 {isSignInform?"Sign In" : "Sign Up"}</button>
-                <button className="m-2 " onClick={googlePopUp}>Sing in with google</button>
+                <button className="m-2 p-3" onClick={googlePopUp}>Sign in with google</button>
             <p className="m-2 p-1 cursor-pointer" onClick={toggleSingUp}><span>{isSignInform? "New to Netflix? Sign Up now.":"Already registerd ? Sing In"}</span></p>
             </div>
         </form>

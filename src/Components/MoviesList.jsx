@@ -1,9 +1,9 @@
 import MovieCard from "./MovieCard";
 
 const MoviesList = ({data,search})=>{
-    if (!data?.results) return null;
+    if (!data?.results) return <h2>Not available</h2>;
     const actualData = data.results.map(c=>c);
-    const filterdData = actualData.filter((a)=>Math.floor(a.vote_average) === Number(search));
+    const filterdData =search && search > 0 ? actualData.filter((a)=>Math.floor(a.vote_average) === Number(search)) : <h2>Data not available</h2>;
     console.log("filterd",filterdData)
     console.log(data)
 return(
@@ -24,10 +24,7 @@ return(
                                              date ={m.release_date}
                                              rate={m.vote_average}
                                              desc={m.overview}/>) 
-
-                }
-
-               
+                }               
               </div>
     </>
 )

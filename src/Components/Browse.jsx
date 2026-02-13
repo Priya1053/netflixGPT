@@ -14,8 +14,6 @@ const Browse = ()=>{
     const data = await fetch(`https://api.themoviedb.org/3/movie/now_playing?page=1`, API_OPTION);
     const json = await data.json();
     setMovies(json);
-    console.log(json);
-    console.log("movies >>",movies);
   };
 
     getMoviePlay();
@@ -25,7 +23,7 @@ const Browse = ()=>{
     return(
         <>
           <Header/> 
-          {movies? <Search searchMovie ={movies} search={search} setSearch={setSearch}/>: null}
+          {movies? <Search search={search} setSearch={setSearch}/>: null}
           {movies ? <MoviesList data = {movies} search={search}/> : null}
         </>
     )
